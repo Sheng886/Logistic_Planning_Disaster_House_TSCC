@@ -1,0 +1,88 @@
+Scenario/Trailer_demand
+Scenario/MHU_demand
+
+
+Timepoint:
+	First_End: the end time point of preparation phase (the time point that actual demand is realized)
+	Deprivation_Start: the time point that deprivation cost start to incur
+	Second_End: the end time point of the logistic
+
+
+House_Info:
+	Price: price of a house
+	Volumn_Factor: number of occpuied units when storing a house in a stageing area or delivering a house in a flow
+	Installation_Time: time units needed to install a house
+
+Staging_Area:
+	Longitude
+	Latitude
+	Capacity: number of units can be occupied
+	High_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the staging area (50% of Capacity)
+	Mid_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the staging area  (25% of Capacity)
+	Low_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the staging area  (5% of Capacity)
+	***three number for all
+
+Study_Region:
+	County
+	Longitude
+	Latitude
+	homeowner_rate
+	occupied_house
+	homeowner_occupied
+
+Supplier:(***capable of producing certain housing)
+	Supplier: Supplier name
+	Longtitude
+	Latitude
+	Price_Trailer: price of a trailer 
+	Price_MHU: price of a MHU 
+	Price_Kit: price of a Kit-of-part 
+	Initial_Inventory_avg_trailer: taking 50% of avg on the collected data (total number of trailer needed / number of hurricanes)*50%
+	Initial_Inventory_avg_MHU: taking 50% of avg on the collected data (total number of MHU needed / number of hurricanes)*50%
+	Initial_Inventory_avg_Kit: 50%*Initial_Inventory_avg_trailer + 50%*Initial_Inventory_avg_MHU
+	Initial_Inventory_Bavg_trailer: taking 30% of avg on the collected data (total number of trailer needed / number of hurricanes)*30%
+	Initial_Inventory_Bavg_MHU: taking 30% of avg on the collected data (total number of MHU needed / number of hurricanes)*30%
+	Initial_Inventory_Bavg_Kit: 30%*Initial_Inventory_avg_trailer + 30%*Initial_Inventory_avg_MHU
+	Initial_Inventory_Aavg_trailer: taking 60% of avg on the collected data (total number of trailer needed / number of hurricanes)*10%
+	Initial_Inventory_Aavg_MHU: taking 60% of avg on the collected data (total number of MHU needed / number of hurricanes)*10%
+	Initial_Inventory_Aavg_Kit: 60%*Initial_Inventory_avg_trailer + 60%*Initial_Inventory_avg_MHU
+	(Following, check Data Generation)
+	High_Production_time_Trailer: (pessimistic) time units that a trailer need to produce (2 * Mid_Production_time_Trailer)
+	High_Production_time_MHU: (pessimistic) time units that a MHU need to produce (2 * Mid_Production_time_MHU)
+	High_Production_time_Kit: (pessimistic) time units that a kit-of-part need to produce (2 * Mid_Production_time_Kit)
+	Mid_Production_time_Trailer: (normal) time units that a trailer need to produce
+	Mid_Production_time_MHU: (normal) time units that a MHU need to produce	
+	Mid_Production_time_Kit: (normal) time units that a kit-of-part need to produce
+	Low_Production_time_Trailer: (optimistic) time units that a trailer need to produce (0.5 * Mid_Production_time_Trailer)
+	Low_Production_time_MHU: (optimistic) time units that a MHU need to produce (0.5 * Mid_Production_time_MHU)
+	Low_Production_time_Kit: (optimistic) time units that a kit-of-part need to produce (0.5 * Mid_Production_time_Kit)
+	Num_Production_Line: number of production line the supplier has 
+	Extra_Num_Production_Line: extra number of production line opened for the supplier in emergency modality (2 * Num_Production_Line)	
+	High_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the supplier 
+				      (Initial_Inventory_Aavg_trailer + High_Production_time_MHU + High_Production_time_Kit) * 0.5
+	Mid_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the supplier
+				      (Initial_Inventory_Aavg_trailer + High_Production_time_MHU + High_Production_time_Kit) * 0.25
+	Low_Flow_Limitation_per_Unit: units of house can be delivered in a time unit from the supplier
+				      (Initial_Inventory_Aavg_trailer + High_Production_time_MHU + High_Production_time_Kit) * 0.10
+
+Mismatch_Penalty:
+	              |   groupd of victims
+	-----------------------------------------------------------------------
+	type of house |   factor of mismatch penalty cost
+		      |   (that is, factor * price of house = penalty cost)
+
+Group_Preference:
+		      |   groupd of victims
+	--------------------------------------------------------------
+	type of house |   Preference order (First) 1 → 2 → 3 → ...
+
+
+Unmet_Penalty:
+	Factor: factor of unmet penalty cost (that is, factor * price of the first preference house = unmet penalty cost)
+
+Unused_Inventory_Penalty: 
+	Factor: factor of unused penalty cost (that is, factor * price of the house = unused inventory penalty cost)
+
+Deprivation_Penalty:
+	Deprivation penalty cost is a function of time t. Thus a_0e^{a_1t}.
+

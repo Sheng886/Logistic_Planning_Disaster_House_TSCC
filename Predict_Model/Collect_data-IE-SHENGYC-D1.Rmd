@@ -1,0 +1,611 @@
+---
+title: "Regression"
+output: html_document
+date: "2022-09-22"
+---
+
+## Package
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ape)
+library(ggplot2)
+library(readxl)
+library(dplyr)
+library(patchwork)
+library(tidyverse)
+library(reshape2)
+library(ggrepel)
+library(MASS)
+library(glmnet)
+library(spdep)
+library(lme4)
+library(MuMIn)
+library(car)
+library(graphics)
+library(bcmixed)
+library(sf)
+library(FNN)
+library(patchwork)
+library(mapview)
+library(sp)
+library(spdep)
+library(ggmap)
+library(geosphere)
+```
+
+# IA and study region load
+
+```{r input excel}
+data_all = read.csv("Data_all.csv")
+
+nrow(data_all)
+
+df = data.frame(county = data_all$county, state = data_all$state, assisstance_rate_type1 = data_all$assisstance_rate_type1, assisstance_rate_type2 = data_all$assisstance_rate_type2, population = data_all$population, wind_50_up = data_all$wind_50_up, hwm = data_all$hwm, SVI = data_all$SVI, node1 = data_all$node1, event_name = data_all$event_name, SS_scale = data_all$SS_scale,SS_scale2 = data_all$SS_scale2, longtitude = data_all$longitude, latitude = data_all$latitude)
+
+```
+
+```{r}
+df$assisstance_rate_type1 = exp(df$assisstance_rate_type1) / (1 + exp(df$assisstance_rate_type1))
+df$assisstance_rate_type2 = exp(df$assisstance_rate_type2) / (1 + exp(df$assisstance_rate_type2))
+
+df$assisstance_rate_type1_scale = scale(df$assisstance_rate_type1, center = TRUE, scale = TRUE)
+mean(df$assisstance_rate_type1)
+sd(df$assisstance_rate_type1)
+min(df$assisstance_rate_type1_scale)
+df$assisstance_rate_type1_scale = df$assisstance_rate_type1_scale - min(df$assisstance_rate_type1_scale) + 1e-09
+
+df$assisstance_rate_type2_scale = scale(df$assisstance_rate_type2, center = TRUE, scale = TRUE)
+mean(df$assisstance_rate_type2)
+sd(df$assisstance_rate_type2)
+min(df$assisstance_rate_type2_scale)
+df$assisstance_rate_type2_scale = df$assisstance_rate_type2_scale - min(df$assisstance_rate_type2_scale) + 1e-09
+
+df$node1_scale = scale(df$node1, center = TRUE, scale = TRUE) 
+df$node1_scale = df$node1_scale - min(df$node1_scale) + 1e-09
+
+df$SVI_scale = scale(df$SVI, center = TRUE, scale = TRUE) 
+df$SVI_scale = df$SVI_scale - min(df$SVI_scale) + 1e-09
+
+df$population_scale = scale(df$population, center = TRUE, scale = TRUE) 
+df$population_scale = df$population_scale - min(df$population_scale) + 1e-09
+
+df$hwm_scale = scale(df$hwm, center = TRUE, scale = TRUE) 
+df$hwm_scale = df$hwm_scale - min(df$hwm_scale) + 1e-09
+
+df$wind_50_up_scale = scale(df$wind_50_up, center = TRUE, scale = TRUE) 
+df$wind_50_up_scale = df$wind_50_up_scale - min(df$wind_50_up_scale) + 1e-09
+```
+
+```{r, out.width="100%"}
+p1 = ggplot(df,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(event_name)))
+p2 = ggplot(df,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(event_name)))
+p3 = ggplot(df,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(event_name)))
+p4 = ggplot(df,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(event_name)))
+p5 = ggplot(df,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(event_name)))
+
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.1818182) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.1414141) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+
+```{r}
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+```
+
+```{r}
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale2)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=node1_scale)) + geom_point(aes(colour = factor(SS_scale2)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale2)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=population_scale)) + geom_point(aes(colour = factor(SS_scale2)))
+ggplot(df,aes(y=assisstance_rate_type1_scale^(0.1818182),x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale2)))
+```
+# two Category 
+
+```{r}
+df_1 = df[df$SS_scale == 0 | df$SS_scale == 1 | df$SS_scale == 2,]
+df_2 = df[df$SS_scale == 4 | df$SS_scale == 5 |  df$SS_scale == 3,]
+```
+
+```{r, out.width="100%"}
+p1 = ggplot(df_1,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_1,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_1,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_1,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_1,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+```
+
+
+```{r, out.width="100%"}
+p1 = ggplot(df_2,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_2,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_2,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_2,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_2,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.1414141) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.1414141) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_1)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.2222222) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+# Three Category
+
+```{r}
+df_2_1 = df[df$SS_scale == 0,] 
+df_2_2 = df[df$SS_scale == 1 | df$SS_scale == 2 | df$SS_scale == 3,] 
+df_2_3 = df[df$SS_scale == 4 | df$SS_scale == 5,]
+```
+
+```{r}
+p1 = ggplot(df_2_1,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_2_1,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_2_1,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_2_1,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_2_1,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+
+```
+
+```{r}
+p1 = ggplot(df_2_2,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_2_2,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_2_2,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_2_2,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_2_2,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+```
+
+
+```{r}
+p1 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+
+```
+
+```{r}
+p1 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=wind_50_up_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p2 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=node1_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p3 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=SVI_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p4 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=population_scale)) + geom_point(aes(colour = factor(SS_scale)))
+p5 = ggplot(df_2_3,aes(y=assisstance_rate_type1_scale,x=hwm_scale)) + geom_point(aes(colour = factor(SS_scale)))
+
+
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.02020202) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.02020202) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_1)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.1414141) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.1818182) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_2)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+```{r}
+lm_model_1 <- lm(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+bc <- boxcox(assisstance_rate_type1_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+bc <- boxcox(assisstance_rate_type2_scale ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+bc$x[which(bc$y == max(bc$y))]
+summary(lm_model_2)
+plot(lm_model_2)
+
+lm_model_1 <- lm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+summary(lm_model_1)
+plot(lm_model_1)
+
+lm_model_2 <- lm(assisstance_rate_type2_scale^(0.2222222) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = df_2_3)
+summary(lm_model_2)
+plot(lm_model_2)
+```
+
+```{r}
+selected_model_1 = step(lm_model_1, direction = "both")
+summary(selected_model_1)
+
+selected_model_2 = step(lm_model_2, direction = "both")
+summary(selected_model_2)
+```
+
+# Regression:
+
+
+```{r}
+library(spatialreg)
+
+coords_temp <- df[, c("county","state","longtitude", "latitude","assisstance_rate_type2_scale","assisstance_rate_type1_scale","node1_scale","SVI_scale","population_scale","hwm_scale","wind_50_up_scale")]
+
+dupes <- duplicated(cbind(coords_temp$longtitude, coords_temp$latitude))
+coords_temp <- coords_temp[!dupes, ]
+
+coords <- coords_temp[, c("longtitude", "latitude")]
+dupes <- duplicated(cbind(coords$longtitude, coords$latitude))
+coords <- coords[!dupes, ]
+
+w <- knn2nb(knearneigh(coords, k = 4, longlat = TRUE))
+W <- nb2listw(w, style="W", zero.policy=TRUE)
+
+plot(w, coords)
+
+# type1 Linear Regression
+model <- lm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = coords_temp)
+summary(model)
+
+
+# type1 MORAN's Test
+
+dists = as.matrix(dist(cbind(coords$longtitude, coords$latitude)))
+dists.inv <- 1/dists
+diag(dists.inv) <- 0
+
+Moran.I(as.vector(coords_temp$assisstance_rate_type1_scale), dists.inv)
+
+# Residual MORAN's Test
+
+lm.morantest(model, W)
+
+model1_0 <- lm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model1_0)
+
+model1_1 <- spatialreg::errorsarlm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale  + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model1_1)
+
+model1_2 <- spatialreg::lagsarlm(assisstance_rate_type1_scale^(0.3030303) ~ node1_scale + SVI_scale + population_scale  + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model1_2)
+```
+
+```{r}
+AIC(model1_0,model1_1,model1_2)
+
+
+# create empty vectors for holding the Moran statistics
+moran_I_lm <- c()
+moran_I_slm <- c()
+moran_I_sem <- c()
+
+# loop through a distance vector d ranging from 50 to 2000 m
+for (d in 1:50) {
+  ww <- knn2nb(knearneigh(coords, k = d, longlat = TRUE))
+  WW <- nb2listw(ww, style = "W", zero.policy = TRUE)
+  
+  moran_lm <- moran.mc(model1_0$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_lm <- c(moran_I_lm, moran_lm$statistic)
+  
+  moran_slm <- moran.mc(model1_1$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_slm <- c(moran_I_slm, moran_slm$statistic)
+  
+  moran_sem <- moran.mc(model1_2$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_sem <- c(moran_I_sem, moran_sem$statistic)
+}
+
+
+moran_I_lm  <- data.frame(moran_I = moran_I_lm, 
+                          distance = seq(1, 50, 1), 
+                          model="Simple linear model")
+
+moran_I_slm <- data.frame(moran_I = moran_I_slm, 
+                          distance = seq(1, 50, 1), 
+                          model="Spatial error model")
+
+moran_I_sem <- data.frame(moran_I = moran_I_sem, 
+                          distance = seq(1, 50, 1), 
+                          model="Spatial lag model")
+
+moran.df <- rbind(moran_I_lm, moran_I_slm, moran_I_sem)
+      
+ggplot(moran.df, aes(x = distance, y = moran_I, col=model)) + geom_point() + geom_line()
+```
+
+```{r}
+ggplot(moran.df, aes(x = distance, y = moran_I, col=model)) + 
+  geom_point() + 
+  geom_line()  +
+  theme_bw(base_size = 12) + theme(legend.box.background = element_rect(color="black", size=1),legend.position = c(0.6, 0.7)) +  guides() + xlab("Number of Nearest Neighbors") + ylab("Moran's I") + guides(color = guide_legend(title = "Regression Model")) 
+
+ggsave("type1_regression.pdf")
+```
+
+
+
+```{r}
+# type2 Linear Regression
+model <- lm(assisstance_rate_type2_scale^(0.222222) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = coords_temp)
+summary(model)
+
+
+# type1 MORAN's Test
+
+dists = as.matrix(dist(cbind(coords$longtitude, coords$latitude)))
+dists.inv <- 1/dists
+diag(dists.inv) <- 0
+
+Moran.I(as.vector(coords_temp$assisstance_rate_type1_scale), dists.inv)
+
+# Residual MORAN's Test
+
+lm.morantest(model, W)
+
+model2_0 <- lm(assisstance_rate_type2_scale^(0.222222) ~ node1_scale + SVI_scale + population_scale + hwm_scale + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model2_0)
+
+model2_1 <- spatialreg::errorsarlm(assisstance_rate_type2_scale^(0.222222) ~ node1_scale + SVI_scale + population_scale  + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model2_1)
+
+model2_2 <- spatialreg::lagsarlm(assisstance_rate_type2_scale^(0.222222) ~ node1_scale + SVI_scale + population_scale + wind_50_up_scale, data = coords_temp, listw = W)
+summary(model2_2)
+```
+
+```{r}
+AIC(model2_0,model2_1,model2_2)
+
+
+# create empty vectors for holding the Moran statistics
+moran_I_lm <- c()
+moran_I_slm <- c()
+moran_I_sem <- c()
+
+# loop through a distance vector d ranging from 50 to 2000 m
+for (d in 1:50) {
+  ww <- knn2nb(knearneigh(coords, k = d, longlat = TRUE))
+  WW <- nb2listw(ww, style = "W", zero.policy = TRUE)
+  
+  moran_lm <- moran.mc(model2_0$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_lm <- c(moran_I_lm, moran_lm$statistic)
+  
+  moran_slm <- moran.mc(model2_1$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_slm <- c(moran_I_slm, moran_slm$statistic)
+  
+  moran_sem <- moran.mc(model2_2$residuals, WW, nsim = 999, zero.policy = TRUE)
+  moran_I_sem <- c(moran_I_sem, moran_sem$statistic)
+}
+
+
+moran_I_lm  <- data.frame(moran_I = moran_I_lm, 
+                          distance = seq(1, 50, 1), 
+                          model="Simple linear model")
+
+moran_I_slm <- data.frame(moran_I = moran_I_slm, 
+                          distance = seq(1, 50, 1), 
+                          model="Spatial error model")
+
+moran_I_sem <- data.frame(moran_I = moran_I_sem, 
+                          distance = seq(1, 50, 1), 
+                          model="Spatial lag model")
+
+moran.df <- rbind(moran_I_lm, moran_I_slm, moran_I_sem)
+      
+ggplot(moran.df, aes(x = distance, y = moran_I, col=model)) + 
+  geom_point() +
+  geom_line()
+```
+
+```{r}
+ggplot(moran.df, aes(x = distance, y = moran_I, col=model)) + 
+  geom_point() + 
+  geom_line()  +
+  theme_bw(base_size = 12) + theme(legend.box.background = element_rect(color="black", size=1),legend.position = c(0.6, 0.7)) +  guides() + xlab("Number of Nearest Neighbors") + ylab("Moran's I") + guides(color = guide_legend(title = "Regression Model")) 
+
+ggsave("type2_regression.pdf")
+```
+
+
+```{r}
+# Data Generation
+
+case_study_data = read.csv("Data_housing_Ian.csv")
+
+coords_temp <- case_study_data[, c("county","state","longitude", "latitude","node1","SVI","population","hwm","wind_50_up")]
+
+coords_temp$node1_scale = (coords_temp$node1 - mean(df$node1))/sd(df$node1)
+coords_temp$node1_scale = coords_temp$node1_scale - min(df$node1_scale) + 1e-09
+
+coords_temp$SVI_scale = (coords_temp$SVI - mean(df$SVI))/sd(df$SVI)
+coords_temp$SVI_scale = coords_temp$SVI_scale - min(df$SVI_scale) + 1e-09
+
+coords_temp$population_scale = (coords_temp$population - mean(df$population))/sd(df$population)
+coords_temp$population_scale = coords_temp$population_scale - min(df$population_scale) + 1e-09
+
+coords_temp$hwm_scale = (coords_temp$hwm - mean(df$hwm))/sd(df$hwm)
+coords_temp$hwm_scale = coords_temp$hwm_scale - min(df$hwm_scale) + 1e-09
+
+coords_temp$wind_50_up_scale = (coords_temp$wind_50_up - mean(df$wind_50_up))/sd(df$wind_50_up)
+coords_temp$wind_50_up_scale = coords_temp$wind_50_up_scale - min(df$wind_50_up_scale) + 1e-09
+
+dupes <- duplicated(cbind(coords_temp$longtitude, coords_temp$latitude))
+coords_temp <- coords_temp[!dupes, ]
+
+coords <- coords_temp[, c("longitude", "latitude")]
+dupes <- duplicated(cbind(coords$longtitude, coords$latitude))
+coords <- coords[!dupes, ]
+
+w <- knn2nb(knearneigh(coords, k = 4, longlat = TRUE))
+W <- nb2listw(w, style="W", zero.policy=TRUE)
+
+plot(w, coords)
+
+predict(model1_1,coords_temp)
+predict(model2_1,coords_temp)
+```
+
+```{r}
+fit_1 = c()
+fit_2 = c()
+
+n1 = c()
+n2 = c()
+n3 = c()
+n4 = c()
+
+temp1 = predict(model1_1,coords_temp)
+temp1 = predict(model1_1,coords_temp)
+temp2 = predict(model2_1,coords_temp)
+
+for( i in 1:67)
+{
+  fit_1 = c(fit_1, temp1[i])
+  fit_2 = c(fit_2, temp2[i])
+  n1 = c(n1,w[i][[1]][1])
+  n2 = c(n2,w[i][[1]][2])
+  n3 = c(n3,w[i][[1]][3])
+  n4 = c(n4,w[i][[1]][4])
+}
+
+ad_df = data.frame(n1 = n1,
+                 n2 = n2,
+                 n3 = n3,
+                 n4 = n4)
+
+trend_df = data.frame(fit_trailer = fit_1, fit_MHU = fit_2)
+write.csv(ad_df, "adjacent_ian.csv", row.names=FALSE)
+write.csv(trend_df, "fit_ian.csv", row.names=FALSE)
+```
+

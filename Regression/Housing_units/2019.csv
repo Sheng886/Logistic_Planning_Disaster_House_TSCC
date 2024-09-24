@@ -1,0 +1,841 @@
+County,Total_housing_units,Occupied_housing_units,Owner-occupied,Renter-occupied,Rental_vacancy_rate,Rental_vacancy
+"Baldwin County, Alabama",119425,82325,65297,17028,51.1,8701.308
+"Calhoun County, Alabama",53809,44636,31479,13157,7.8,1026.246
+"Cullman County, Alabama",38256,32090,24314,7776,1.4,108.864
+"DeKalb County, Alabama",31606,24880,17793,7087,5.2,368.524
+"Elmore County, Alabama",34481,30712,22863,7849,6.9,541.581
+"Etowah County, Alabama",47855,40053,29176,10877,10.1,1098.577
+"Houston County, Alabama",48138,39761,25807,13954,10.3,1437.262
+"Jefferson County, Alabama",309673,264753,161480,103273,9,9294.57
+"Lauderdale County, Alabama",45616,38761,24944,13817,4.2,580.314
+"Lee County, Alabama",71228,64448,43362,21086,6.6,1391.676
+"Limestone County, Alabama",36520,32020,25166,6854,13.9,952.706
+"Madison County, Alabama",166523,155878,103919,51959,3,1558.77
+"Marshall County, Alabama",40798,35330,24884,10446,3,313.38
+"Mobile County, Alabama",185062,155946,98897,57049,7.4,4221.626
+"Montgomery County, Alabama",105314,88864,52039,36825,9.4,3461.55
+"Morgan County, Alabama",52403,46470,34777,11693,10.9,1274.537
+"St. Clair County, Alabama",37258,32829,25631,7198,0,0
+"Shelby County, Alabama",89139,84048,68557,15491,7.1,1099.861
+"Talladega County, Alabama",38095,30602,22560,8042,4.3,345.806
+"Tuscaloosa County, Alabama",92799,74259,46998,27261,5.5,1499.355
+"Walker County, Alabama",31343,25153,19645,5508,18.5,1018.98
+"Anchorage Municipality, Alaska",119272,105198,64218,40980,11.2,4589.76
+"Fairbanks North Star Borough, Alaska",44316,35556,22000,13556,7.8,1057.368
+"Matanuska-Susitna Borough, Alaska",42134,32736,24952,7784,4.8,373.632
+"Apache County, Arizona",33021,20925,16717,4208,8.7,366.096
+"Cochise County, Arizona",61588,51982,35253,16729,2.9,485.141
+"Coconino County, Arizona",67491,48993,30131,18862,12.3,2320.026
+"Maricopa County, Arizona",1789265,1611722,1019351,592371,4.9,29026.179
+"Mohave County, Arizona",116201,91095,65788,25307,1.8,455.526
+"Navajo County, Arizona",58501,38732,28206,10526,6.1,642.086
+"Pima County, Arizona",466337,410404,258461,151943,6.5,9876.295
+"Pinal County, Arizona",181389,153413,120045,33368,6.6,2202.288
+"Yavapai County, Arizona",120652,102784,72672,30112,6,1806.72
+"Yuma County, Arizona",94648,74042,49099,24943,5.1,1272.093
+"Benton County, Arkansas",112180,100749,68376,32373,5.3,1715.769
+"Craighead County, Arkansas",46942,41409,24280,17129,5.6,959.224
+"Faulkner County, Arkansas",50619,47389,28335,19054,4.2,800.268
+"Garland County, Arkansas",51011,41743,29084,12659,8.5,1076.015
+"Jefferson County, Arkansas",33397,27593,17760,9833,5.1,501.483
+"Lonoke County, Arkansas",30112,26052,18572,7480,3.4,254.32
+"Pulaski County, Arkansas",186446,158000,95145,62855,12.4,7794.02
+"Saline County, Arkansas",49582,45455,33753,11702,4.8,561.696
+"Sebastian County, Arkansas",57421,51384,29255,22129,3.5,774.515
+"Washington County, Arkansas",96298,89249,47260,41989,6.3,2645.307
+"White County, Arkansas",34037,28621,18535,10086,11.3,1139.718
+"Alameda County, California",622957,585632,310526,275106,3.4,9353.604
+"Butte County, California",86212,77651,45913,31738,5.6,1777.328
+"Contra Costa County, California",418696,399792,261531,138261,4.4,6083.484
+"El Dorado County, California",91662,74216,54917,19299,3.8,733.362
+"Fresno County, California",336479,315974,169436,146538,4.1,6008.058
+"Humboldt County, California",63723,55692,30623,25069,4.7,1178.243
+"Imperial County, California",58285,48182,26722,21460,1.9,407.74
+"Kern County, California",302927,272888,160392,112496,4.7,5287.312
+"Kings County, California",46958,44761,23861,20900,1.8,376.2
+"Lake County, California",34566,25968,17475,8493,1.6,135.888
+"Los Angeles County, California",3579423,3328398,1511628,1816770,4,72670.8
+"Madera County, California",51440,44387,28221,16166,2,323.32
+"Marin County, California",113345,105298,65325,39973,1.8,719.514
+"Mendocino County, California",41027,34478,20758,13720,4.5,617.4
+"Merced County, California",86386,80645,42067,38578,2.4,925.872
+"Monterey County, California",143213,128227,67742,60485,5.7,3447.645
+"Napa County, California",55659,48107,31820,16287,5.9,960.933
+"Nevada County, California",54825,39365,28610,10755,7.3,785.115
+"Orange County, California",1118148,1044280,596413,447867,5,22393.35
+"Placer County, California",168942,147236,106512,40724,4.6,1873.304
+"Riverside County, California",857222,734948,493233,241715,4.7,11360.605
+"Sacramento County, California",578966,556752,316102,240650,2.5,6016.25
+"San Bernardino County, California",731393,644758,388079,256679,3.7,9497.123
+"San Diego County, California",1233923,1132434,609641,522793,4.8,25094.064
+"San Francisco County, California",406399,365851,135852,229999,3,6899.97
+"San Joaquin County, California",248673,230241,134428,95813,4.7,4503.211
+"San Luis Obispo County, California",123969,106512,66483,40029,7.5,3002.175
+"San Mateo County, California",280500,265003,157016,107987,4.5,4859.415
+"Santa Barbara County, California",159286,146466,76433,70033,3.8,2661.254
+"Santa Clara County, California",686306,643637,353576,290061,5,14503.05
+"Santa Cruz County, California",107137,97710,58553,39157,2,783.14
+"Shasta County, California",78621,72714,45963,26751,1.4,374.514
+"Solano County, California",159804,150393,93542,56851,4.3,2444.593
+"Sonoma County, California",208293,190689,118521,72168,2.7,1948.536
+"Stanislaus County, California",182987,174698,100247,74451,1.9,1414.569
+"Sutter County, California",34577,33039,19315,13724,0.3,41.172
+"Tehama County, California",27848,25310,18639,6671,0,0
+"Tulare County, California",151599,144109,85380,58729,2.4,1409.496
+"Ventura County, California",291547,268524,168510,100014,4.5,4500.63
+"Yolo County, California",79252,76075,38839,37236,2.1,781.956
+"Yuba County, California",29051,26827,17201,9626,7.6,731.576
+"Adams County, Colorado",178517,171977,117058,54919,4.5,2471.355
+"Arapahoe County, Colorado",257364,246302,161329,84973,5.4,4588.542
+"Boulder County, Colorado",140554,131854,81234,50620,3.2,1619.84
+"Broomfield County, Colorado",29677,28062,17628,10434,3.2,333.888
+"Denver County, Colorado",338346,318445,158620,159825,3.3,5274.225
+"Douglas County, Colorado",132247,127476,101016,26460,6.6,1746.36
+"El Paso County, Colorado",280730,265798,170245,95553,3.3,3153.249
+"Jefferson County, Colorado",245121,236496,164923,71573,3.8,2719.774
+"Larimer County, Colorado",154407,146638,96398,50240,1.5,753.6
+"Mesa County, Colorado",68118,63644,45333,18311,2.1,384.531
+"Pueblo County, Colorado",71897,66111,44328,21783,2.6,566.358
+"Weld County, Colorado",115917,111298,81888,29410,4.9,1441.09
+"Fairfield County, Connecticut",375368,340557,225048,115509,8.6,9933.774
+"Hartford County, Connecticut",381396,353234,223409,129825,6.3,8178.975
+"Litchfield County, Connecticut",88414,73969,55144,18825,8.3,1562.475
+"Middlesex County, Connecticut",76652,66884,49828,17056,5.1,869.856
+"New Haven County, Connecticut",368680,329006,199119,129887,5.7,7403.559
+"New London County, Connecticut",124208,109752,71314,38438,4.6,1768.148
+"Tolland County, Connecticut",60281,56749,40928,15821,4.5,711.945
+"Windham County, Connecticut",49960,47015,30804,16211,1.2,194.532
+"Kent County, Delaware",74455,68023,45318,22705,4.4,999.02
+"New Castle County, Delaware",225246,211592,140639,70953,6.8,4824.804
+"Sussex County, Delaware",144063,96624,78546,18078,8.3,1500.474
+"District of Columbia, District of Columbia",322814,291570,120988,170582,7,11940.74
+"Alachua County, Florida",120226,103024,55654,47370,17.6,8337.12
+"Bay County, Florida",104764,69195,48931,20264,7,1418.48
+"Brevard County, Florida",282830,230043,178306,51737,13.5,6984.495
+"Broward County, Florida",828571,705472,438749,266723,6.7,17870.441
+"Charlotte County, Florida",107124,76589,62695,13894,18.4,2556.496
+"Citrus County, Florida",80902,64448,53473,10975,10.3,1130.425
+"Clay County, Florida",82630,75793,60250,15543,3.9,606.177
+"Collier County, Florida",222289,140578,104357,36221,7.1,2571.691
+"Columbia County, Florida",29285,25240,16910,8330,6.4,533.12
+"Duval County, Florida",418735,368668,210184,158484,8.2,12995.688
+"Escambia County, Florida",143225,120618,72778,47840,4.9,2344.16
+"Flagler County, Florida",53832,44464,34692,9772,2.5,244.3
+"Hernando County, Florida",88713,78755,63644,15111,2.2,332.442
+"Highlands County, Florida",56119,43351,34686,8665,4.2,363.93
+"Hillsborough County, Florida",599503,541584,324271,217313,7.9,17167.727
+"Indian River County, Florida",82262,63917,49409,14508,13.9,2016.612
+"Lake County, Florida",163587,139192,102101,37091,5.8,2151.278
+"Lee County, Florida",408569,286887,216615,70272,10.4,7308.288
+"Leon County, Florida",132780,116283,60290,55993,6.2,3471.566
+"Manatee County, Florida",198824,145171,111853,33318,24.3,8096.274
+"Marion County, Florida",173200,145622,104152,41470,5.4,2239.38
+"Martin County, Florida",80779,65014,50952,14062,7.1,998.402
+"Miami-Dade County, Florida",1040743,912805,459877,452928,5.3,24005.184
+"Monroe County, Florida",53896,32839,18641,14198,16.4,2328.472
+"Nassau County, Florida",41245,35212,28868,6344,2.1,133.224
+"Okaloosa County, Florida",98624,76097,50128,25969,13.1,3401.939
+"Orange County, Florida",556898,457949,262330,195619,15,29342.85
+"Osceola County, Florida",162677,111539,69399,42140,8.1,3413.34
+"Palm Beach County, Florida",693183,568915,395678,173237,6.1,10567.457
+"Pasco County, Florida",250659,212856,159385,53471,9.6,5133.216
+"Pinellas County, Florida",511777,395286,272491,122795,8.8,10805.96
+"Polk County, Florida",304440,238629,165489,73140,7,5119.8
+"Putnam County, Florida",37599,30866,20296,10570,0.4,42.28
+"St. Johns County, Florida",116381,94761,78695,16066,10.1,1622.666
+"St. Lucie County, Florida",146060,116900,88743,28157,13.3,3744.881
+"Santa Rosa County, Florida",74441,66187,49872,16315,4,652.6
+"Sarasota County, Florida",249428,187411,143001,44410,14,6217.4
+"Seminole County, Florida",193938,181142,117029,64113,6,3846.78
+"Sumter County, Florida",74248,59458,52596,6862,17.9,1228.298
+"Volusia County, Florida",264145,219451,157050,62401,7.4,4617.674
+"Walton County, Florida",54815,26475,20714,5761,53.4,3076.374
+"Barrow County, Georgia",29788,27765,23273,4492,11.8,530.056
+"Bartow County, Georgia",42301,39742,27557,12185,0.1,12.185
+"Bibb County, Georgia",70014,56726,28961,27765,12.1,3359.565
+"Bulloch County, Georgia",31847,28660,15515,13145,8.7,1143.615
+"Carroll County, Georgia",46015,42798,28836,13962,1.1,153.582
+"Catoosa County, Georgia",27732,24130,17882,6248,3.8,237.424
+"Chatham County, Georgia",127435,107987,59957,48030,10.4,4995.12
+"Cherokee County, Georgia",97493,93441,69351,24090,1.5,361.35
+"Clarke County, Georgia",53647,52124,19131,32993,1.2,395.916
+"Clayton County, Georgia",106352,97030,47263,49767,9.3,4628.331
+"Cobb County, Georgia",304843,286952,188503,98449,4,3937.96
+"Columbia County, Georgia",59833,46890,37948,8942,24.3,2172.906
+"Coweta County, Georgia",56538,53640,39549,14091,1.9,267.729
+"DeKalb County, Georgia",317672,289829,164980,124849,6.7,8364.883
+"Dougherty County, Georgia",40518,32630,15226,17404,15.6,2715.024
+"Douglas County, Georgia",53380,48899,32813,16086,4.3,691.698
+"Fayette County, Georgia",43492,41253,34254,6999,3.7,258.963
+"Floyd County, Georgia",40764,35443,21576,13867,11.2,1553.104
+"Forsyth County, Georgia",87530,81765,69327,12438,6.5,808.47
+"Fulton County, Georgia",488640,439578,233631,205947,9,18535.23
+"Glynn County, Georgia",44005,34614,23606,11008,13,1431.04
+"Gwinnett County, Georgia",316342,301471,201707,99764,5.5,5487.02
+"Hall County, Georgia",76167,65625,48299,17326,5.3,918.278
+"Henry County, Georgia",84528,79550,52756,26794,6.1,1634.434
+"Houston County, Georgia",65038,58417,35867,22550,9.7,2187.35
+"Jackson County, Georgia",26774,25180,20306,4874,1.8,87.732
+"Lowndes County, Georgia",49488,42639,22452,20187,11.4,2301.318
+"Muscogee County, Georgia",85251,73134,35905,37229,7.8,2903.862
+"Newton County, Georgia",40255,37867,25945,11922,1.3,154.986
+"Paulding County, Georgia",59627,56476,43699,12777,1.9,242.763
+"Richmond County, Georgia",89447,68361,35064,33297,11.2,3729.264
+"Rockdale County, Georgia",34078,32792,20503,12289,0,0
+"Spalding County, Georgia",27795,25339,18016,7323,9.5,695.685
+"Troup County, Georgia",28736,24436,13661,10775,8.8,948.2
+"Walker County, Georgia",30535,26760,18593,8167,4.5,367.515
+"Walton County, Georgia",34794,33350,25455,7895,N,0
+"Whitfield County, Georgia",40368,34518,24902,9616,10.1,971.216
+"Hawaii County, Hawaii",89361,71193,49708,21485,6.4,1375.04
+"Honolulu County, Hawaii",354719,316456,181534,134922,4.9,6611.178
+"Kauai County, Hawaii",31577,22898,15429,7469,6.4,478.016
+"Maui County, Hawaii",74569,54744,33289,21455,29.6,6350.68
+"Ada County, Idaho",192646,184160,131261,52899,3.7,1957.263
+"Bannock County, Idaho",34845,32010,21274,10736,5.1,547.536
+"Bonneville County, Idaho",44559,40776,28477,12299,4.9,602.651
+"Canyon County, Idaho",80065,77449,55994,21455,1.4,300.37
+"Kootenai County, Idaho",74620,65283,45183,20100,1.9,381.9
+"Twin Falls County, Idaho",34190,31850,21950,9900,3.8,376.2
+"Adams County, Illinois",30255,26993,19418,7575,15.6,1181.7
+"Champaign County, Illinois",94700,81764,42424,39340,11.6,4563.44
+"Cook County, Illinois",2204152,1985613,1125174,860439,4.6,39580.194
+"DeKalb County, Illinois",41304,39330,23302,16028,5.9,945.652
+"DuPage County, Illinois",362207,342195,251408,90787,6,5447.22
+"Kane County, Illinois",190969,182223,135234,46989,4.6,2161.494
+"Kankakee County, Illinois",45753,39583,26270,13313,3.5,465.955
+"Kendall County, Illinois",42901,41364,36392,4972,0.9,44.748
+"Lake County, Illinois",265517,247661,180469,67192,6.2,4165.904
+"LaSalle County, Illinois",50187,45411,32659,12752,2.9,369.808
+"McHenry County, Illinois",119181,112669,90110,22559,3.1,699.329
+"McLean County, Illinois",72761,65118,41528,23590,9,2123.1
+"Macon County, Illinois",50316,42741,29187,13554,15.4,2087.316
+"Madison County, Illinois",120046,108104,78069,30035,3.8,1141.33
+"Peoria County, Illinois",83627,73666,49816,23850,8.2,1955.7
+"Rock Island County, Illinois",66166,60618,39441,21177,5.7,1207.089
+"St. Clair County, Illinois",121065,106156,67963,38193,3.7,1413.141
+"Sangamon County, Illinois",92270,83263,55433,27830,6.1,1697.63
+"Tazewell County, Illinois",58948,53127,39842,13285,10.6,1408.21
+"Vermilion County, Illinois",36101,31154,21057,10097,10.9,1100.573
+"Will County, Illinois",246682,230136,187422,42714,5.3,2263.842
+"Williamson County, Illinois",31560,27650,20390,7260,21.1,1531.86
+"Winnebago County, Illinois",125714,114833,74627,40206,7.1,2854.626
+"Allen County, Indiana",160704,146280,101959,44321,7.1,3146.791
+"Bartholomew County, Indiana",34678,30383,21994,8389,7.2,604.008
+"Boone County, Indiana",27993,26803,20866,5937,3.4,201.858
+"Clark County, Indiana",51698,43704,32555,11149,14.1,1572.009
+"Delaware County, Indiana",52715,45640,28093,17547,8.6,1509.042
+"Elkhart County, Indiana",79764,68553,49951,18602,14.3,2660.086
+"Floyd County, Indiana",33149,28544,20944,7600,13.6,1033.6
+"Grant County, Indiana",30533,27127,18989,8138,10,813.8
+"Hamilton County, Indiana",132345,125328,97260,28068,7.8,2189.304
+"Hancock County, Indiana",31181,28985,22632,6353,5.2,330.356
+"Hendricks County, Indiana",63955,61105,45803,15302,3.7,566.174
+"Howard County, Indiana",39860,34151,24920,9231,9.4,867.714
+"Johnson County, Indiana",62527,57160,44035,13125,11,1443.75
+"Kosciusko County, Indiana",39085,30991,24355,6636,5.3,351.708
+"Lake County, Indiana",214683,190135,131102,59033,4.2,2479.386
+"LaPorte County, Indiana",49317,43100,31247,11853,4.4,521.532
+"Madison County, Indiana",59182,51164,35194,15970,8.4,1341.48
+"Marion County, Indiana",426041,379451,202628,176823,5.5,9725.265
+"Monroe County, Indiana",62393,54053,31766,22287,6.7,1493.229
+"Morgan County, Indiana",28647,25863,21274,4589,7.9,362.531
+"Porter County, Indiana",69866,65305,49039,16266,7.1,1154.886
+"St. Joseph County, Indiana",117502,105250,72643,32607,12.1,3945.447
+"Tippecanoe County, Indiana",78334,73916,39907,34009,4.5,1530.405
+"Vanderburgh County, Indiana",84629,75522,48215,27307,6.2,1693.034
+"Vigo County, Indiana",47526,42193,26557,15636,5,781.8
+"Wayne County, Indiana",31525,27561,18300,9261,10.1,935.361
+"Black Hawk County, Iowa",58457,51869,34503,17366,4.8,833.568
+"Dallas County, Iowa",38961,36878,26251,10627,11.3,1200.851
+"Dubuque County, Iowa",41755,38345,28576,9769,17.2,1680.268
+"Johnson County, Iowa",66252,60782,35078,25704,7.6,1953.504
+"Linn County, Iowa",98817,93843,66403,27440,6.2,1701.28
+"Polk County, Iowa",207909,197731,131149,66582,4.7,3129.354
+"Pottawattamie County, Iowa",40101,37344,25942,11402,1.2,136.824
+"Scott County, Iowa",74948,68534,46116,22418,6.2,1389.916
+"Story County, Iowa",41315,39168,21875,17293,1.9,328.567
+"Woodbury County, Iowa",42515,39733,26537,13196,4.9,646.604
+"Butler County, Kansas",27227,25004,19324,5680,N,0
+"Douglas County, Kansas",51770,48508,23903,24605,3.5,861.175
+"Johnson County, Kansas",248504,231960,161133,70827,3.8,2691.426
+"Leavenworth County, Kansas",30248,27860,18561,9299,11.7,1087.983
+"Riley County, Kansas",31414,25662,10867,14795,12.8,1893.76
+"Sedgwick County, Kansas",222312,199517,124386,75131,8.9,6686.659
+"Shawnee County, Kansas",80223,73172,49005,24167,12.5,3020.875
+"Wyandotte County, Kansas",68413,61248,35515,25733,5.2,1338.116
+"Boone County, Kentucky",50593,48770,37438,11332,2,226.64
+"Bullitt County, Kentucky",32267,30553,23985,6568,7.4,486.032
+"Campbell County, Kentucky",40863,38110,27322,10788,3.9,420.732
+"Christian County, Kentucky",29986,26209,12799,13410,10.5,1408.05
+"Daviess County, Kentucky",43482,40800,27543,13257,4.7,623.079
+"Fayette County, Kentucky",144089,131929,70322,61607,5.1,3141.957
+"Hardin County, Kentucky",47238,42644,26697,15947,13.4,2136.898
+"Jefferson County, Kentucky",349317,316174,193237,122937,6.6,8113.842
+"Kenton County, Kentucky",69898,65362,43254,22108,0.6,132.648
+"McCracken County, Kentucky",32294,28363,16970,11393,2.1,239.253
+"Madison County, Kentucky",37295,34270,20371,13899,6.1,847.839
+"Oldham County, Kentucky",22492,20761,17987,2774,5.5,152.57
+"Warren County, Kentucky",55947,50489,28772,21717,8.7,1889.379
+"Ascension Parish, Louisiana",49458,44267,37441,6826,11.6,791.816
+"Bossier Parish, Louisiana",58309,49735,33161,16574,14.7,2436.378
+"Caddo Parish, Louisiana",113578,92589,58718,33871,6.8,2303.228
+"Calcasieu Parish, Louisiana",93196,77232,50931,26301,11.1,2919.411
+"East Baton Rouge Parish, Louisiana",196154,161536,96836,64700,10.9,7052.3
+"Iberia Parish, Louisiana",30822,26185,18323,7862,17.3,1360.126
+"Jefferson Parish, Louisiana",188659,171991,105404,66587,5.1,3395.937
+"Lafayette Parish, Louisiana",105067,94490,60759,33731,5.8,1956.398
+"Lafourche Parish, Louisiana",41924,36759,27845,8914,11.7,1042.938
+"Livingston Parish, Louisiana",58644,47014,38544,8470,10,847
+"Orleans Parish, Louisiana",192236,151753,75257,76496,7,5354.72
+"Ouachita Parish, Louisiana",69476,57835,33211,24624,12.6,3102.624
+"Rapides Parish, Louisiana",58731,48975,31098,17877,8.4,1501.668
+"St. Landry Parish, Louisiana",37244,30441,20611,9830,6.6,648.78
+"St. Tammany Parish, Louisiana",105716,94988,74960,20028,5.5,1101.54
+"Tangipahoa Parish, Louisiana",57545,46526,33581,12945,7.1,919.095
+"Terrebonne Parish, Louisiana",45764,40173,27537,12636,1.5,189.54
+"Androscoggin County, Maine",50309,45924,29840,16084,1.1,176.924
+"Aroostook County, Maine",40043,30197,22166,8031,1.8,144.558
+"Cumberland County, Maine",147042,124925,87915,37010,4.2,1554.42
+"Kennebec County, Maine",63231,54480,37468,17012,2.9,493.348
+"Penobscot County, Maine",76369,64096,44696,19400,6.9,1338.6
+"York County, Maine",112070,86227,61558,24669,3.3,814.077
+"Allegany County, Maryland",32734,26549,18176,8373,12.3,1029.879
+"Anne Arundel County, Maryland",227920,216200,159840,56360,6.5,3663.4
+"Baltimore County, Maryland",338286,312466,204824,107642,8.1,8719.002
+"Calvert County, Maryland",35517,32780,28328,4452,9.4,418.488
+"Carroll County, Maryland",63980,60617,50091,10526,6.6,694.716
+"Cecil County, Maryland",42748,38547,28290,10257,3.4,348.738
+"Charles County, Maryland",61831,57732,44866,12866,3,385.98
+"Frederick County, Maryland",100798,93768,71077,22691,6.7,1520.297
+"Harford County, Maryland",101586,96203,75079,21124,3.6,760.464
+"Howard County, Maryland",122591,115772,84688,31084,7.5,2331.3
+"Montgomery County, Maryland",391024,368897,238978,129919,4.9,6366.031
+"Prince George's County, Maryland",335778,316361,198084,118277,4.7,5559.019
+"St. Mary's County, Maryland",46808,40320,29165,11155,11.7,1305.135
+"Washington County, Maryland",61766,56225,35626,20599,7.5,1544.925
+"Wicomico County, Maryland",42530,38088,21986,16102,2.1,338.142
+"Baltimore city, Maryland",293877,242694,115524,127170,7.6,9664.92
+"Barnstable County, Massachusetts",164686,96509,77198,19311,7.9,1525.569
+"Berkshire County, Massachusetts",69223,53792,37635,16157,6.4,1034.048
+"Bristol County, Massachusetts",236903,220528,138335,82193,3.5,2876.755
+"Essex County, Massachusetts",314738,297898,187859,110039,2.8,3081.092
+"Franklin County, Massachusetts",34210,30927,20382,10545,1.2,126.54
+"Hampden County, Massachusetts",193912,179970,108909,71061,3,2131.83
+"Hampshire County, Massachusetts",64360,60002,41568,18434,4.1,755.794
+"Middlesex County, Massachusetts",645316,612366,379336,233030,2,4660.6
+"Norfolk County, Massachusetts",281786,269717,184456,85261,2.4,2046.264
+"Plymouth County, Massachusetts",209537,191041,147958,43083,2.5,1077.075
+"Suffolk County, Massachusetts",345438,309945,112655,197290,3.9,7694.31
+"Worcester County, Massachusetts",337885,316162,204796,111366,3.1,3452.346
+"Allegan County, Michigan",51989,43667,35010,8657,3.4,294.338
+"Bay County, Michigan",48365,44887,33331,11556,3.4,392.904
+"Berrien County, Michigan",77902,61809,45701,16108,7.2,1159.776
+"Calhoun County, Michigan",60915,53827,39408,14419,11.4,1643.766
+"Clinton County, Michigan",32170,30070,25143,4927,18,886.86
+"Eaton County, Michigan",47812,44420,31335,13085,8.5,1112.225
+"Genesee County, Michigan",192921,169247,118446,50801,5.7,2895.657
+"Grand Traverse County, Michigan",45119,37408,28041,9367,7,655.69
+"Ingham County, Michigan",124347,114534,68782,45752,4.9,2241.848
+"Isabella County, Michigan",29304,24690,15882,8808,12.2,1074.576
+"Jackson County, Michigan",69818,61403,45588,15815,5.1,806.565
+"Kalamazoo County, Michigan",113062,103196,63591,39605,6.1,2415.905
+"Kent County, Michigan",259379,245437,171100,74337,4.5,3345.165
+"Lapeer County, Michigan",36980,33902,28755,5147,0,0
+"Lenawee County, Michigan",43971,38499,28848,9651,1.2,115.812
+"Livingston County, Michigan",77734,73502,62508,10994,2.6,285.844
+"Macomb County, Michigan",369436,351666,260793,90873,4.8,4361.904
+"Marquette County, Michigan",34967,27981,20142,7839,6,470.34
+"Midland County, Michigan",37202,34350,27890,6460,2.5,161.5
+"Monroe County, Michigan",65256,60875,47513,13362,1.1,146.982
+"Muskegon County, Michigan",74496,66148,49079,17069,6.5,1109.485
+"Oakland County, Michigan",544682,508464,364316,144148,7.3,10522.804
+"Ottawa County, Michigan",112002,105004,79453,25551,3.3,843.183
+"Saginaw County, Michigan",88021,79050,56980,22070,12.5,2758.75
+"St. Clair County, Michigan",72581,63806,50568,13238,3.3,436.854
+"Shiawassee County, Michigan",30269,26830,20088,6742,10,674.2
+"Van Buren County, Michigan",37549,30974,23665,7309,7.2,526.248
+"Washtenaw County, Michigan",152272,141680,88532,53148,3.6,1913.328
+"Wayne County, Michigan",815538,689270,430920,258350,4.9,12659.15
+"Anoka County, Minnesota",134696,131858,105111,26747,2,534.94
+"Blue Earth County, Minnesota",29169,26461,15982,10479,6.7,702.093
+"Carver County, Minnesota",39756,38860,32554,6306,4.9,308.994
+"Crow Wing County, Minnesota",42629,28012,22025,5987,2.4,143.688
+"Dakota County, Minnesota",169966,162895,122186,40709,6,2442.54
+"Hennepin County, Minnesota",543739,517091,319814,197277,3.1,6115.587
+"Olmsted County, Minnesota",68153,65635,46820,18815,5.8,1091.27
+"Ramsey County, Minnesota",221283,206124,122749,83375,5.1,4252.125
+"Rice County, Minnesota",25274,22861,17279,5582,0.6,33.492
+"St. Louis County, Minnesota",105322,86448,62388,24060,8,1924.8
+"Scott County, Minnesota",52739,51474,42771,8703,0,0
+"Sherburne County, Minnesota",34756,32686,27845,4841,11.6,561.556
+"Stearns County, Minnesota",65674,59776,40723,19053,1.9,362.007
+"Washington County, Minnesota",100991,97059,76369,20690,2.5,517.25
+"Wright County, Minnesota",53289,49443,42171,7272,2.3,167.256
+"DeSoto County, Mississippi",69654,65220,46717,18503,10.7,1979.821
+"Forrest County, Mississippi",33179,27340,14289,13051,9,1174.59
+"Harrison County, Mississippi",94600,74628,44878,29750,11.9,3540.25
+"Hinds County, Mississippi",104294,88471,48094,40377,6.7,2705.259
+"Jackson County, Mississippi",62786,56323,39160,17163,12.1,2076.723
+"Jones County, Mississippi",29289,24178,16758,7420,9.6,712.32
+"Lauderdale County, Mississippi",35401,29367,17351,12016,11.3,1357.808
+"Lee County, Mississippi",37122,30378,21026,9352,12.7,1187.704
+"Madison County, Mississippi",44471,40046,29829,10217,8.1,827.577
+"Rankin County, Mississippi",61846,57011,44061,12950,7.8,1010.1
+"Boone County, Missouri",79353,70721,40691,30030,12.8,3843.84
+"Buchanan County, Missouri",38824,33984,19394,14590,8,1167.2
+"Cape Girardeau County, Missouri",34983,31335,20823,10512,5.8,609.696
+"Cass County, Missouri",42891,40544,30853,9691,0.3,29.073
+"Christian County, Missouri",35310,33227,24493,8734,0,0
+"Clay County, Missouri",99679,93066,63048,30018,5.1,1530.918
+"Cole County, Missouri",33613,31437,20207,11230,0.3,33.69
+"Franklin County, Missouri",45879,42161,33036,9125,6.4,584
+"Greene County, Missouri",135642,133900,70214,63686,1.4,891.604
+"Jackson County, Missouri",328262,292571,169643,122928,4.9,6023.472
+"Jasper County, Missouri",52254,45019,27043,17976,3.3,593.208
+"Jefferson County, Missouri",92150,83841,66500,17341,5.1,884.391
+"Platte County, Missouri",42841,40332,26737,13595,5.6,761.32
+"St. Charles County, Missouri",158414,150668,119892,30776,6,1846.56
+"St. Francois County, Missouri",30442,24021,16623,7398,3.3,244.134
+"St. Louis County, Missouri",442243,410842,284616,126226,4.5,5680.17
+"St. Louis city, Missouri",177400,146779,64692,82087,7,5746.09
+"Cascade County, Montana",39203,32816,21644,11172,12.4,1385.328
+"Flathead County, Montana",49527,40681,31454,9227,5.2,479.804
+"Gallatin County, Montana",52558,46990,28306,18684,3.5,653.94
+"Lewis and Clark County, Montana",31942,27405,19751,7654,9.9,757.746
+"Missoula County, Montana",55544,50853,31672,19181,1.3,249.353
+"Yellowstone County, Montana",73855,69989,46851,23138,5.8,1342.004
+"Douglas County, Nebraska",239730,222819,137728,85091,8.7,7402.917
+"Lancaster County, Nebraska",134993,128385,77412,50973,3.3,1682.109
+"Sarpy County, Nebraska",71060,68947,48510,20437,5.1,1042.287
+"Clark County, Nevada",924533,813607,441385,372222,8.8,32755.536
+"Washoe County, Nevada",205407,191091,111196,79895,3.2,2556.64
+"Cheshire County, New Hampshire",35894,29698,20056,9642,5.6,539.952
+"Grafton County, New Hampshire",53410,35780,24926,10854,8.3,900.882
+"Hillsborough County, New Hampshire",173305,162588,109095,53493,3,1604.79
+"Merrimack County, New Hampshire",65566,60017,42894,17123,3.1,530.813
+"Rockingham County, New Hampshire",134177,124212,96689,27523,3.2,880.736
+"Strafford County, New Hampshire",54821,50584,33168,17416,5.3,923.048
+"Atlantic County, New Jersey",128951,101975,67659,34316,5.4,1853.064
+"Bergen County, New Jersey",360822,343733,222292,121441,4.1,4979.081
+"Burlington County, New Jersey",180448,170074,124607,45467,1.9,863.873
+"Camden County, New Jersey",206368,187780,126990,60790,7.3,4437.67
+"Cape May County, New Jersey",99630,40939,30533,10406,37.1,3860.626
+"Cumberland County, New Jersey",56471,51360,33804,17556,3.6,632.016
+"Essex County, New Jersey",319689,295976,131638,164338,3.6,5916.168
+"Gloucester County, New Jersey",114452,106705,83415,23290,1.6,372.64
+"Hudson County, New Jersey",286907,266664,83332,183332,4.1,7516.612
+"Hunterdon County, New Jersey",50554,47901,38527,9374,4.4,412.456
+"Mercer County, New Jersey",145133,130851,81851,49000,3.5,1715
+"Middlesex County, New Jersey",303457,285906,181453,104453,4.3,4491.479
+"Monmouth County, New Jersey",262917,240377,174634,65743,2.8,1840.804
+"Morris County, New Jersey",196196,184885,132419,52466,3.6,1888.776
+"Ocean County, New Jersey",286173,226725,183046,43679,1.5,655.185
+"Passaic County, New Jersey",177254,168059,88200,79859,2.6,2076.334
+"Salem County, New Jersey",27603,24404,17467,6937,10.5,728.385
+"Somerset County, New Jersey",127526,122606,91514,31092,0.4,124.368
+"Sussex County, New Jersey",62632,54099,47108,6991,17.4,1216.434
+"Union County, New Jersey",203047,192848,111662,81186,3.3,2679.138
+"Warren County, New Jersey",45624,42397,29647,12750,4,510
+"Bernalillo County, New Mexico",296402,271307,173157,98150,7.3,7164.95
+"Chaves County, New Mexico",27477,24671,16662,8009,9.8,784.882
+"Do??a Ana County, New Mexico",89967,79094,51074,28020,10.6,2970.12
+"Lea County, New Mexico",27031,24478,15721,8757,0.8,70.056
+"McKinley County, New Mexico",26429,21719,16086,5633,2,112.66
+"Otero County, New Mexico",31945,24133,15286,8847,9.3,822.771
+"Sandoval County, New Mexico",58142,53251,43872,9379,4,375.16
+"San Juan County, New Mexico",51481,42561,28368,14193,11.7,1660.581
+"Santa Fe County, New Mexico",73550,62182,44385,17797,8.1,1441.557
+"Valencia County, New Mexico",31585,24829,18977,5852,11.4,667.128
+"Albany County, New York",142884,128284,74329,53955,6,3237.3
+"Bronx County, New York",537197,513890,96969,416921,1.9,7921.499
+"Broome County, New York",91402,79309,50800,28509,10.3,2936.427
+"Cattaraugus County, New York",41741,33056,24297,8759,6.3,551.817
+"Cayuga County, New York",37227,31489,23033,8456,0,0
+"Chautauqua County, New York",67779,55345,38450,16895,3,506.85
+"Chemung County, New York",39081,33490,24072,9418,12.9,1214.922
+"Clinton County, New York",36836,31422,20566,10856,3.7,401.672
+"Dutchess County, New York",121547,110529,73749,36780,4.5,1655.1
+"Erie County, New York",430732,398326,257105,141221,3.2,4519.072
+"Jefferson County, New York",60160,41214,23336,17878,9,1609.02
+"Kings County, New York",1065363,978091,291015,687076,2.9,19925.204
+"Livingston County, New York",27720,23409,17474,5935,3.4,201.79
+"Madison County, New York",32461,25986,20303,5683,6.6,375.078
+"Monroe County, New York",330262,305284,191432,113852,7.5,8538.9
+"Nassau County, New York",474127,449798,362440,87358,5.3,4629.974
+"New York County, New York",892930,768203,179243,588960,4.6,27092.16
+"Niagara County, New York",100704,90625,63919,26706,6.7,1789.302
+"Oneida County, New York",105623,90273,61874,28399,7.1,2016.329
+"Onondaga County, New York",209759,183218,118478,64740,10.3,6668.22
+"Ontario County, New York",51695,46025,33025,13000,6.4,832
+"Orange County, New York",145217,131421,87322,44099,2.1,926.079
+"Oswego County, New York",54734,46640,35713,10927,6.1,666.547
+"Putnam County, New York",38711,34470,27311,7159,1.6,114.544
+"Queens County, New York",869346,784552,346290,438262,3.1,13586.122
+"Rensselaer County, New York",73431,65790,40226,25564,6.7,1712.788
+"Richmond County, New York",181765,166297,109302,56995,5.6,3191.72
+"Rockland County, New York",106991,101424,69056,32368,1.4,453.152
+"St. Lawrence County, New York",53488,42832,31344,11488,0.3,34.464
+"Saratoga County, New York",108296,93547,68956,24591,8.2,2016.462
+"Schenectady County, New York",70111,62534,39422,23112,9.6,2218.752
+"Steuben County, New York",49796,39283,28510,10773,6.4,689.472
+"Suffolk County, New York",577470,499744,404153,95591,3.7,3536.867
+"Sullivan County, New York",51276,28960,20051,8909,5.7,507.813
+"Tompkins County, New York",44633,40322,20193,20129,6.6,1328.514
+"Ulster County, New York",85616,69376,46749,22627,0.4,90.508
+"Warren County, New York",40284,29593,20969,8624,7.5,646.8
+"Wayne County, New York",41905,36634,28023,8611,6.7,576.937
+"Westchester County, New York",377263,355136,221141,133995,2.8,3751.86
+"Alamance County, North Carolina",72814,64316,44067,20249,7.8,1579.422
+"Brunswick County, North Carolina",95083,58385,49317,9068,23,2085.64
+"Buncombe County, North Carolina",127989,106741,66293,40448,8.6,3478.528
+"Burke County, North Carolina",41590,36634,27563,9071,5.9,535.189
+"Cabarrus County, North Carolina",82525,68798,50749,18049,11.9,2147.831
+"Caldwell County, North Carolina",38250,32513,24126,8387,3.8,318.706
+"Carteret County, North Carolina",50962,28962,21031,7931,0.7,55.517
+"Catawba County, North Carolina",69863,62417,45051,17366,6.8,1180.888
+"Chatham County, North Carolina",33704,30674,22360,8314,0,0
+"Cleveland County, North Carolina",43770,30599,21289,9310,8.6,800.66
+"Craven County, North Carolina",47681,42221,29083,13138,6.2,814.556
+"Cumberland County, North Carolina",147330,128135,64091,64044,7.4,4739.256
+"Davidson County, North Carolina",76060,69938,49477,20461,3.2,654.752
+"Durham County, North Carolina",142012,131140,71803,59337,5.3,3144.861
+"Forsyth County, North Carolina",168800,148151,91051,57100,9,5139
+"Franklin County, North Carolina",29726,26720,19270,7450,1.7,126.65
+"Gaston County, North Carolina",94983,85705,55309,30396,8,2431.68
+"Guilford County, North Carolina",231631,206950,119636,87314,6,5238.84
+"Harnett County, North Carolina",53046,46416,30058,16358,7.8,1275.924
+"Henderson County, North Carolina",58795,51115,37247,13868,0.6,83.208
+"Iredell County, North Carolina",77448,68145,50487,17658,4.2,741.636
+"Johnston County, North Carolina",79857,73567,54042,19525,0.8,156.2
+"Lincoln County, North Carolina",37535,34418,25758,8660,1.4,121.24
+"Mecklenburg County, North Carolina",466955,426313,238620,187693,7.9,14827.747
+"Moore County, North Carolina",48629,41530,30946,10584,0.3,31.752
+"Nash County, North Carolina",43327,37574,24038,13536,5.5,744.48
+"New Hanover County, North Carolina",114851,100189,57776,42413,4,1696.52
+"Onslow County, North Carolina",81076,63604,34598,29006,4.6,1334.276
+"Orange County, North Carolina",60272,55259,34770,20489,5.4,1106.406
+"Pitt County, North Carolina",81250,70926,35660,35266,3.3,1163.778
+"Randolph County, North Carolina",62922,56117,40169,15948,5.7,909.036
+"Robeson County, North Carolina",53398,46272,30950,15322,3.3,505.626
+"Rockingham County, North Carolina",44419,38462,26555,11907,2.8,333.396
+"Rowan County, North Carolina",62494,55241,37500,17741,7.1,1259.611
+"Rutherford County, North Carolina",34576,27970,21096,6874,9.8,673.652
+"Surry County, North Carolina",34417,28408,20699,7709,15.4,1187.186
+"Union County, North Carolina",84005,77954,64375,13579,3.6,488.844
+"Wake County, North Carolina",453362,419361,267493,151868,6.6,10023.288
+"Wayne County, North Carolina",54736,48482,29515,18967,2.5,474.175
+"Wilkes County, North Carolina",33765,28376,20666,7710,4.1,316.11
+"Wilson County, North Carolina",36495,32384,18452,13932,4.9,682.668
+"Burleigh County, North Dakota",43442,38438,26986,11452,10.1,1156.652
+"Cass County, North Dakota",85452,78736,36529,42207,7.5,3165.525
+"Grand Forks County, North Dakota",33498,31506,15025,16481,4.8,791.088
+"Ward County, North Dakota",33164,28908,17193,11715,6.6,773.19
+"Allen County, Ohio",45188,40460,28267,12193,5.1,621.843
+"Ashtabula County, Ohio",46268,39490,26929,12561,2.1,263.781
+"Athens County, Ohio",26669,22659,14912,7747,4.5,348.615
+"Belmont County, Ohio",32236,25651,18783,6868,3,206.04
+"Butler County, Ohio",153275,140141,95005,45136,4.8,2166.528
+"Clark County, Ohio",61251,54406,36463,17943,3.8,681.834
+"Clermont County, Ohio",84158,80041,58887,21154,0.2,42.308
+"Columbiana County, Ohio",46852,40560,30632,9928,4.2,416.976
+"Cuyahoga County, Ohio",617202,549471,316633,232838,6,13970.28
+"Delaware County, Ohio",76155,73290,57881,15409,7.2,1109.448
+"Erie County, Ohio",37900,30308,21832,8476,15.1,1279.876
+"Fairfield County, Ohio",62206,59031,43948,15083,2.1,316.743
+"Franklin County, Ohio",564363,522383,278809,243574,5.3,12909.422
+"Geauga County, Ohio",37422,35439,29726,5713,0,0
+"Greene County, Ohio",71316,66154,42817,23337,3.7,863.469
+"Hamilton County, Ohio",380778,347235,204271,142964,4.3,6147.452
+"Hancock County, Ohio",34544,32490,21851,10639,0.6,63.834
+"Jefferson County, Ohio",32411,27515,18828,8687,4.1,356.167
+"Lake County, Ohio",103499,96967,71106,25861,2.8,724.108
+"Licking County, Ohio",71199,66604,47161,19443,1.7,330.531
+"Lorain County, Ohio",132804,120299,88108,32191,8.8,2832.808
+"Lucas County, Ohio",203795,182105,109722,72383,4.9,3546.767
+"Mahoning County, Ohio",111251,100057,70212,29845,2.7,805.815
+"Marion County, Ohio",27877,25013,16266,8747,1.3,113.711
+"Medina County, Ohio",73569,70450,54577,15873,3.2,507.936
+"Miami County, Ohio",44406,41273,30758,10515,7.2,757.08
+"Montgomery County, Ohio",255088,224831,138837,85994,6.4,5503.616
+"Muskingum County, Ohio",37960,33342,23611,9731,5.4,525.474
+"Portage County, Ohio",69753,61018,41399,19619,4,784.76
+"Richland County, Ohio",54101,49812,33538,16274,2.8,455.672
+"Ross County, Ohio",32019,28365,20919,7446,2.5,186.15
+"Scioto County, Ohio",34576,29319,20002,9317,7.8,726.726
+"Stark County, Ohio",167206,154280,103087,51193,5.1,2610.843
+"Summit County, Ohio",246464,224629,147449,77180,3.4,2624.12
+"Trumbull County, Ohio",95624,84159,59206,24953,6.7,1671.851
+"Tuscarawas County, Ohio",40247,36788,26402,10386,5.8,602.388
+"Warren County, Ohio",89771,84460,65589,18871,3.4,641.614
+"Wayne County, Ohio",46951,44589,31533,13056,0.9,117.504
+"Wood County, Ohio",54134,51353,33473,17880,2.6,464.88
+"Canadian County, Oklahoma",49464,46005,33999,12006,1.8,216.108
+"Cleveland County, Oklahoma",117077,108673,69344,39329,6.2,2438.398
+"Comanche County, Oklahoma",51654,41843,21807,20036,2.9,581.044
+"Creek County, Oklahoma",30776,26561,19384,7177,6.3,452.151
+"Muskogee County, Oklahoma",30949,26842,17337,9505,7.2,684.36
+"Oklahoma County, Oklahoma",343982,305493,177674,127819,8.5,10864.615
+"Payne County, Oklahoma",36849,31788,16886,14902,11.5,1713.73
+"Pottawatomie County, Oklahoma",29943,25655,17899,7756,2.9,224.924
+"Rogers County, Oklahoma",38955,35531,27086,8445,1.6,135.12
+"Tulsa County, Oklahoma",285880,255352,151406,103946,8.8,9147.248
+"Wagoner County, Oklahoma",33217,29837,23466,6371,5.2,331.292
+"Benton County, Oregon",39107,37378,21425,15953,5.6,893.368
+"Clackamas County, Oregon",170716,161295,114097,47198,3.2,1510.336
+"Deschutes County, Oregon",92781,76528,54130,22398,5.8,1299.084
+"Douglas County, Oregon",50968,46186,32273,13913,0.7,97.391
+"Jackson County, Oregon",97268,87800,55297,32503,3.3,1072.599
+"Josephine County, Oregon",39641,35206,23339,11867,5.1,605.217
+"Klamath County, Oregon",33882,29357,19243,10114,0,0
+"Lane County, Oregon",164846,155696,90298,65398,2,1307.96
+"Linn County, Oregon",51391,49407,33293,16114,2.1,338.394
+"Marion County, Oregon",128637,121061,75933,45128,6,2707.68
+"Multnomah County, Oregon",359802,337903,184222,153681,4.3,6608.283
+"Polk County, Oregon",32959,31224,21346,9878,4.5,444.51
+"Umatilla County, Oregon",30909,27538,17518,10020,2.4,240.48
+"Washington County, Oregon",234162,222877,135770,87107,4.1,3571.387
+"Yamhill County, Oregon",39901,36323,23582,12741,5.2,662.532
+"Adams County, Pennsylvania",42760,38703,30335,8368,7.2,602.496
+"Allegheny County, Pennsylvania",604269,553858,347661,206197,3.8,7835.486
+"Armstrong County, Pennsylvania",32834,29095,21763,7332,3.9,285.948
+"Beaver County, Pennsylvania",79792,70745,51465,19280,9,1735.2
+"Berks County, Pennsylvania",167863,154696,107713,46983,5.4,2537.082
+"Blair County, Pennsylvania",57025,52497,37088,15409,4.8,739.632
+"Bucks County, Pennsylvania",252245,240491,185374,55117,4,2204.68
+"Butler County, Pennsylvania",84871,77920,59387,18533,6.7,1241.711
+"Cambria County, Pennsylvania",66019,56490,42304,14186,7.1,1007.206
+"Carbon County, Pennsylvania",34885,27107,20033,7074,15.5,1096.47
+"Centre County, Pennsylvania",67401,58963,35745,23218,4.6,1068.028
+"Chester County, Pennsylvania",203192,193234,143664,49570,5.9,2924.63
+"Clearfield County, Pennsylvania",39351,31990,24302,7688,4.5,345.96
+"Columbia County, Pennsylvania",30431,26219,18747,7472,4.4,328.768
+"Crawford County, Pennsylvania",45003,35387,25287,10100,9,909
+"Cumberland County, Pennsylvania",107924,101823,71529,30294,2.1,636.174
+"Dauphin County, Pennsylvania",125440,113905,72193,41712,6.8,2836.416
+"Delaware County, Pennsylvania",225011,209502,144988,64514,4.6,2967.644
+"Erie County, Pennsylvania",121861,110128,73155,36973,5.2,1922.596
+"Fayette County, Pennsylvania",64068,54955,38873,16082,7.7,1238.314
+"Franklin County, Pennsylvania",66195,60260,44226,16034,4.9,785.666
+"Indiana County, Pennsylvania",39020,30704,21982,8722,23,2006.06
+"Lackawanna County, Pennsylvania",100848,88154,55854,32300,3.8,1227.4
+"Lancaster County, Pennsylvania",213299,204701,142522,62179,2.6,1616.654
+"Lawrence County, Pennsylvania",41363,37282,27657,9625,2.4,231
+"Lebanon County, Pennsylvania",58258,53861,38338,15523,6.1,946.903
+"Lehigh County, Pennsylvania",147125,137847,87077,50770,4.2,2132.34
+"Luzerne County, Pennsylvania",150503,130890,88275,42615,2.6,1107.99
+"Lycoming County, Pennsylvania",53647,44842,31208,13634,10.1,1377.034
+"Mercer County, Pennsylvania",52406,46427,33475,12952,5.8,751.216
+"Monroe County, Pennsylvania",81828,56274,42141,14133,7.5,1059.975
+"Montgomery County, Pennsylvania",338480,321373,230217,91156,6.7,6107.452
+"Northampton County, Pennsylvania",123896,114950,80063,34887,3.9,1360.593
+"Northumberland County, Pennsylvania",45625,38592,26541,12051,4.8,578.448
+"Philadelphia County, Pennsylvania",691653,619505,323722,295783,4.6,13606.018
+"Schuylkill County, Pennsylvania",70037,58242,44657,13585,1.3,176.605
+"Somerset County, Pennsylvania",38587,29456,23131,6325,4.6,290.95
+"Washington County, Pennsylvania",96602,86716,66073,20643,5.8,1197.294
+"Westmoreland County, Pennsylvania",170858,155147,116106,39041,4.7,1834.927
+"York County, Pennsylvania",185652,175441,131665,43776,3.1,1357.056
+"Kent County, Rhode Island",74633,70166,48263,21903,3.2,700.896
+"Newport County, Rhode Island",42778,33690,21987,11703,16.4,1919.292
+"Providence County, Rhode Island",266824,237518,131300,106218,6.4,6797.952
+"Washington County, Rhode Island",64710,48051,36654,11397,6,683.82
+"Aiken County, South Carolina",78524,67889,52246,15643,3.8,594.434
+"Anderson County, South Carolina",89873,75825,57383,18442,12.2,2249.924
+"Beaufort County, South Carolina",102702,73043,56061,16982,15.7,2666.174
+"Berkeley County, South Carolina",88370,80640,56964,23676,7,1657.32
+"Charleston County, South Carolina",195148,165568,105452,60116,8.5,5109.86
+"Darlington County, South Carolina",31014,24801,17287,7514,6,450.84
+"Dorchester County, South Carolina",62371,57768,42634,15134,13.6,2058.224
+"Florence County, South Carolina",61817,53047,34466,18581,10.8,2006.748
+"Greenville County, South Carolina",218205,199551,139331,60220,5.4,3251.88
+"Greenwood County, South Carolina",31586,28544,18188,10356,3,310.68
+"Horry County, South Carolina",214839,140260,101298,38962,30.2,11766.524
+"Kershaw County, South Carolina",29692,24544,19968,4576,2.6,118.976
+"Lancaster County, South Carolina",39578,35410,28424,6986,10.9,761.474
+"Laurens County, South Carolina",31739,25901,17737,8164,4.7,383.708
+"Lexington County, South Carolina",127995,118193,87488,30705,3.5,1074.675
+"Oconee County, South Carolina",41184,31530,24185,7345,2.6,190.97
+"Orangeburg County, South Carolina",42940,32129,20506,11623,4.3,499.789
+"Pickens County, South Carolina",55598,48203,33282,14921,7.9,1178.759
+"Richland County, South Carolina",177357,153484,90888,62596,5.1,3192.396
+"Spartanburg County, South Carolina",134034,121256,87991,33265,6.6,2195.49
+"Sumter County, South Carolina",48613,44105,28176,15929,5.3,844.237
+"York County, South Carolina",112650,108400,75855,32545,2.4,781.08
+"Minnehaha County, South Dakota",85648,81046,49521,31525,5.1,1607.775
+"Pennington County, South Dakota",49796,44676,30288,14388,3.9,561.132
+"Anderson County, Tennessee",35157,30175,21426,8749,4.3,376.207
+"Blount County, Tennessee",58947,50813,38648,12165,7.6,924.54
+"Bradley County, Tennessee",44530,39992,25879,14113,6.8,959.684
+"Davidson County, Tennessee",325455,289427,155502,133925,9.8,13124.65
+"Greene County, Tennessee",32776,28323,19792,8531,6.4,545.984
+"Hamilton County, Tennessee",165520,148157,92940,55217,5.9,3257.803
+"Knox County, Tennessee",210101,191925,121781,70144,6,4208.64
+"Madison County, Tennessee",43495,38930,24778,14152,6.2,877.424
+"Maury County, Tennessee",39263,37104,28403,8701,7.9,687.379
+"Montgomery County, Tennessee",84147,76974,45206,31768,5.4,1715.472
+"Putnam County, Tennessee",35347,31778,20371,11407,4.1,467.687
+"Robertson County, Tennessee",28023,26577,20089,6488,4,259.52
+"Rutherford County, Tennessee",125467,113797,72513,41284,10,4128.4
+"Sevier County, Tennessee",58730,37933,27152,10781,14.2,1530.902
+"Shelby County, Tennessee",407303,353950,191812,162138,9.3,15078.834
+"Sullivan County, Tennessee",75923,68560,50242,18318,1.2,219.816
+"Sumner County, Tennessee",75380,70098,51747,18351,5.5,1009.305
+"Washington County, Tennessee",61186,55817,36835,18982,4.4,835.208
+"Williamson County, Tennessee",87536,84393,69642,14751,7.3,1076.823
+"Wilson County, Tennessee",56429,51618,38421,13197,5.4,712.638
+"Angelina County, Texas",37257,32293,22375,9918,9.2,912.456
+"Bastrop County, Texas",31085,26393,19906,6487,6.8,441.116
+"Bell County, Texas",144248,126772,68274,58498,9.4,5498.812
+"Bexar County, Texas",705080,646352,376508,269844,7.4,19968.456
+"Bowie County, Texas",40203,34935,21606,13329,4.6,613.134
+"Brazoria County, Texas",142622,129261,97974,31287,10,3128.7
+"Brazos County, Texas",94330,79971,38546,41425,12,4971
+"Cameron County, Texas",154022,129307,84071,45236,5.6,2533.216
+"Collin County, Texas",390255,363599,227747,135852,7.9,10732.308
+"Comal County, Texas",63392,57004,43784,13220,6.3,832.86
+"Coryell County, Texas",27085,22093,12928,9165,1.6,146.64
+"Dallas County, Texas",1041816,940587,469815,470772,9.3,43781.796
+"Denton County, Texas",329507,305164,201627,103537,6.7,6936.979
+"Ector County, Texas",59599,53155,32632,20523,5.6,1149.288
+"Ellis County, Texas",65933,61465,47805,13660,4.2,573.72
+"El Paso County, Texas",301465,269150,162741,106409,12.1,12875.489
+"Fort Bend County, Texas",269377,253030,196119,56911,7.4,4211.414
+"Galveston County, Texas",150382,127092,86048,41044,8.5,3488.74
+"Grayson County, Texas",57459,49024,33926,15098,4,603.92
+"Gregg County, Texas",52431,45711,27858,17853,6.9,1231.857
+"Guadalupe County, Texas",61304,56051,42881,13170,3.2,421.44
+"Harris County, Texas",1818241,1647384,878216,769168,8.7,66917.616
+"Harrison County, Texas",28988,24197,16116,8081,4.9,395.969
+"Hays County, Texas",84564,77749,49386,28363,4.6,1304.698
+"Henderson County, Texas",41914,30607,20948,9659,4.3,415.337
+"Hidalgo County, Texas",285996,247544,168726,78818,9.7,7645.346
+"Hunt County, Texas",38398,35093,23549,11544,4.4,507.936
+"Jefferson County, Texas",109138,89273,53818,35455,5.6,1985.48
+"Johnson County, Texas",63680,59113,42639,16474,8.2,1350.868
+"Kaufman County, Texas",43485,39835,31841,7994,6.6,527.604
+"Liberty County, Texas",32722,27367,21819,5548,0,0
+"Lubbock County, Texas",130778,117494,66328,51166,9.3,4758.438
+"McLennan County, Texas",103174,93021,57003,36018,3.1,1116.558
+"Midland County, Texas",63193,59325,41481,17844,4.9,874.356
+"Montgomery County, Texas",229708,209528,149814,59714,9.4,5613.116
+"Nacogdoches County, Texas",28612,24722,13960,10762,4.6,495.052
+"Nueces County, Texas",150830,131194,78988,52206,9.3,4855.158
+"Orange County, Texas",38326,31913,23546,8367,12.3,1029.141
+"Parker County, Texas",51540,43520,36598,6922,13.3,920.626
+"Potter County, Texas",50444,44180,23529,20651,9,1858.59
+"Randall County, Texas",55503,50261,36776,13485,14.5,1955.325
+"Rockwall County, Texas",37228,36665,30836,5829,N,#VALUE!
+"San Patricio County, Texas",28847,21872,14679,7193,4.6,330.878
+"Smith County, Texas",91844,78600,52515,26085,7.6,1982.46
+"Tarrant County, Texas",791810,727094,437440,289654,9.5,27517.13
+"Taylor County, Texas",57958,50282,28314,21968,6.4,1405.952
+"Tom Green County, Texas",48910,43604,28953,14651,3.8,556.738
+"Travis County, Texas",545724,507751,265500,242251,5.1,12354.801
+"Victoria County, Texas",37284,30058,20654,9404,20.2,1899.608
+"Walker County, Texas",27058,22201,12670,9531,0,0
+"Webb County, Texas",85800,76326,45726,30600,7.5,2295
+"Wichita County, Texas",56193,48315,29368,18947,10.4,1970.488
+"Williamson County, Texas",205616,193008,127124,65884,6.7,4414.228
+"Wise County, Texas",25167,22882,18881,4001,1.8,72.018
+"Cache County, Utah",43162,40206,25452,14754,6.7,988.518
+"Davis County, Utah",112486,109358,82753,26605,2.7,718.335
+"Salt Lake County, Utah",411484,384692,258772,125920,7.2,9066.24
+"Tooele County, Utah",23170,21292,18065,3227,17.2,555.044
+"Utah County, Utah",186547,178152,120732,57420,4.1,2354.22
+"Washington County, Utah",74135,63144,45516,17628,4.4,775.632
+"Weber County, Utah",94290,87863,66231,21632,6.8,1470.976
+"Chittenden County, Vermont",71283,68516,42786,25730,1.7,437.41
+"Albemarle County, Virginia",47090,43754,28862,14892,2.6,387.192
+"Arlington County, Virginia",118883,111887,46761,65126,3.3,2149.158
+"Augusta County, Virginia",32847,29951,24326,5625,0.9,50.625
+"Bedford County, Virginia",37048,31390,26464,4926,9.2,453.192
+"Chesterfield County, Virginia",134283,128920,99626,29294,6.6,1933.404
+"Fairfax County, Virginia",416073,400186,269685,130501,2.6,3393.026
+"Fauquier County, Virginia",27397,24270,18835,5435,0.8,43.48
+"Frederick County, Virginia",35452,32010,24724,7286,7.1,517.306
+"Hanover County, Virginia",42272,39521,33364,6157,7.3,449.461
+"Henrico County, Virginia",139281,130591,79623,50968,6.1,3109.048
+"James City County, Virginia",34132,30262,24332,5930,18.1,1073.33
+"Loudoun County, Virginia",139982,133750,103512,30238,7.1,2146.898
+"Montgomery County, Virginia",41056,36244,19355,16889,3.1,523.559
+"Prince William County, Virginia",151737,143508,105507,38001,7,2660.07
+"Roanoke County, Virginia",41089,37506,28664,8842,3.8,335.996
+"Rockingham County, Virginia",36168,30462,22455,8007,1.7,136.119
+"Spotsylvania County, Virginia",49599,46427,35536,10891,6.8,740.588
+"Stafford County, Virginia",51370,48092,38713,9379,7.5,703.425
+"York County, Virginia",28523,26008,18071,7937,11.9,944.503
+"Alexandria city, Virginia",76424,71005,31688,39317,4.2,1651.314
+"Chesapeake city, Virginia",92584,86878,60213,26665,6.3,1679.895
+"Hampton city, Virginia",60130,55633,28476,27157,5.3,1439.321
+"Lynchburg city, Virginia",32529,28950,13743,15207,7.1,1079.697
+"Newport News city, Virginia",77931,70918,34578,36340,10.2,3706.68
+"Norfolk city, Virginia",98476,88387,38901,49486,7.1,3513.506
+"Portsmouth city, Virginia",40906,36089,20225,15864,4.4,698.016
+"Richmond city, Virginia",101240,89878,39181,50697,5.5,2788.335
+"Roanoke city, Virginia",46941,40810,19692,21118,9.6,2027.328
+"Suffolk city, Virginia",37954,34597,23628,10969,4,438.76
+"Virginia Beach city, Virginia",186468,175029,109117,65912,4.6,3031.952
+"Benton County, Washington",78624,73678,50144,23534,6.5,1529.71
+"Chelan County, Washington",38641,28974,18159,10815,12.7,1373.505
+"Clallam County, Washington",37722,33022,23366,9656,5.1,492.456
+"Clark County, Washington",189576,180862,118656,62206,3.3,2052.798
+"Cowlitz County, Washington",45285,42790,27805,14985,0.9,134.865
+"Franklin County, Washington",29249,28162,18657,9505,2.3,218.615
+"Grant County, Washington",38515,30866,20002,10864,11.7,1271.088
+"Grays Harbor County, Washington",36913,29920,21664,8256,6,495.36
+"Island County, Washington",42652,35586,25979,9607,7.2,691.704
+"King County, Washington",970358,907761,510957,396804,4.1,16268.964
+"Kitsap County, Washington",114895,107525,75154,32371,2.9,938.759
+"Lewis County, Washington",35678,31879,22062,9817,4.2,412.314
+"Mason County, Washington",33992,24820,20190,4630,8.8,407.44
+"Pierce County, Washington",356265,333657,209569,124088,5,6204.4
+"Skagit County, Washington",54936,49043,34265,14778,1,147.78
+"Snohomish County, Washington",318098,299827,199866,99961,4.8,4798.128
+"Spokane County, Washington",223061,211723,130089,81634,3,2449.02
+"Thurston County, Washington",119553,112909,77567,35342,4.8,1696.416
+"Whatcom County, Washington",99210,88794,57155,31639,3.8,1202.282
+"Yakima County, Washington",89751,83992,53279,30713,2.5,767.825
+"Berkeley County, West Virginia",50340,46395,34352,12043,3,361.29
+"Cabell County, West Virginia",46300,38040,22319,15721,3,471.63
+"Harrison County, West Virginia",31810,25905,19624,6281,16.4,1030.084
+"Kanawha County, West Virginia",92165,78384,54412,23972,10.9,2612.948
+"Monongalia County, West Virginia",45212,40401,24263,16138,7.2,1161.936
+"Raleigh County, West Virginia",36144,31331,22838,8493,7.6,645.468
+"Wood County, West Virginia",40287,34182,25280,8902,10.8,961.416
+"Brown County, Wisconsin",111218,107385,66275,41110,3,1233.3
+"Dane County, Wisconsin",239876,229760,131636,98124,3.6,3532.464
+"Dodge County, Wisconsin",38073,35104,25266,9838,5.8,570.604
+"Eau Claire County, Wisconsin",44760,41385,27087,14298,9,1286.82
+"Fond du Lac County, Wisconsin",45554,42604,28797,13807,6.1,842.227
+"Jefferson County, Wisconsin",36166,32783,23988,8795,3.4,299.03
+"Kenosha County, Wisconsin",70866,64187,42449,21738,4.5,978.21
+"La Crosse County, Wisconsin",51029,48175,31294,16881,4.9,827.169
+"Manitowoc County, Wisconsin",37652,33831,25057,8774,4.2,368.508
+"Marathon County, Wisconsin",59943,54765,39528,15237,0.3,45.711
+"Milwaukee County, Wisconsin",420159,383665,189527,194138,6.2,12036.556
+"Outagamie County, Wisconsin",78207,74974,52953,22021,1.9,418.399
+"Ozaukee County, Wisconsin",37990,35795,26644,9151,0.6,54.906
+"Portage County, Wisconsin",31247,29063,20130,8933,7,625.31
+"Racine County, Wisconsin",83124,78905,52951,25954,5.7,1479.378
+"Rock County, Wisconsin",69429,65316,44814,20502,4.8,984.096
+"St. Croix County, Wisconsin",36820,34731,27257,7474,N,#VALUE!
+"Sheboygan County, Wisconsin",51418,48691,34830,13861,1.4,194.054
+"Walworth County, Wisconsin",52939,42799,30169,12630,3,378.9
+"Washington County, Wisconsin",57511,55256,42659,12597,0.4,50.388
+"Waukesha County, Wisconsin",167955,160635,121640,38995,4.3,1676.785
+"Winnebago County, Wisconsin",76311,71238,45197,26041,5,1302.05
+"Wood County, Wisconsin",35479,32684,23621,9063,8,725.04
+"Laramie County, Wyoming",44385,41739,28449,13290,1,132.9
+"Natrona County, Wyoming",37358,33044,23936,9108,8.2,746.856
+"Arecibo Municipio, Puerto Rico",41008,32090,19459,12631,4.9,618.919
+"Bayam??n Municipio, Puerto Rico",83546,68980,47504,21476,6.2,1331.512
+"Caguas Municipio, Puerto Rico",57455,47669,31091,16578,5.9,978.102
+"Carolina Municipio, Puerto Rico",75881,58602,40302,18300,10.4,1903.2
+"Guaynabo Municipio, Puerto Rico",40890,33125,22357,10768,3.3,355.344
+"Mayag??ez Municipio, Puerto Rico",41210,28649,15088,13561,10.2,1383.222
+"Ponce Municipio, Puerto Rico",66019,52837,35701,17136,5.8,993.888
+"San Juan Municipio, Puerto Rico",190479,138800,77123,61677,9,5550.93
+"Toa Alta Municipio, Puerto Rico",26446,22650,19512,3138,0,0
+"Toa Baja Municipio, Puerto Rico",34618,28291,20717,7574,7.4,560.476
+"Trujillo Alto Municipio, Puerto Rico",29601,23263,16271,6992,2.2,153.824

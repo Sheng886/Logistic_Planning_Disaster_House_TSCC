@@ -1,0 +1,382 @@
+---
+title: "Regression"
+output: html_document
+date: "2022-09-22"
+---
+
+## Package
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(readxl)
+library(dplyr)
+library(patchwork)
+library(tidyverse)
+library(reshape2)
+library(ggrepel)
+library(MASS)
+library(glmnet)
+library(spdep)
+library(lme4)
+library(MuMIn)
+library(car)
+library(graphics)
+library(bcmixed)
+library(sf)
+library(FNN)
+
+library(randomForest)
+
+library(scico)
+library(sf)
+library(ncdf4)
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("maps")
+
+library("spatialRF")
+
+library(e1071)
+
+library(igraph)
+library(ggraph)
+library(tidygraph)
+library(torch)
+library(torchvision)
+
+library(Metrics)
+```
+
+# IA and study region load
+
+```{r input excel}
+data_all_ian = read.csv("Data_housing_Ian.csv")
+data_all = read.csv("Data_all.csv")
+
+xy <- data_all[, c("longitude", "latitude")]
+
+data_all_ian_regression = subset(data_all_ian , select = c("type1_p","type2_p"))
+data_all_ian_true = subset(data_all_ian , select = c("type1_t","type2_t"))
+data_all_ian_input = subset(data_all_ian , select = c("node1","SVI","population","hwm","wind_50_up"))
+data_all = subset(data_all , select = c("node1","SVI","population","hwm","wind_50_up","assisstance_rate_type1","assisstance_rate_type2"))
+data_all_input = subset(data_all , select = c("node1","SVI","population","hwm","wind_50_up"))
+data_all_output1 = subset(data_all , select = c("assisstance_rate_type1"))
+data_all_output2 = subset(data_all , select = c("assisstance_rate_type2"))
+```
+
+```{r}
+#coordinates of the cases
+
+
+#distance matrix
+dists = as.matrix(dist(cbind(xy$longtitude, xy$latitude)))
+dists.inv <- 1/dists
+diag(dists.inv) <- 0
+
+#distance matrix
+dists_ian = as.matrix(dist(cbind(data_all_ian$longtitude, data_all_ian$latitude)))
+dists_ian.inv <- 1/dists
+diag(dists_ian.inv) <- 0
+
+
+spatial.model <- spatialRF::rf_spatial(
+  data = data_all,
+  dependent.variable.name = "assisstance_rate_type1",
+  predictor.variable.names = c("node1","SVI","population","hwm","wind_50_up"),
+  distance.matrix = dists
+  )
+
+output.forest1 <- randomForest(assisstance_rate_type1 ~ node1 + SVI + population + hwm + wind_50_up , data = data_all)
+print(output.forest1) 
+rf_p1 = predict(output.forest1, newdata = data_all_ian_input)
+
+output.forest2 <- randomForest(assisstance_rate_type2 ~ node1 + SVI + population + hwm + wind_50_up , data = data_all)
+print(output.forest2) 
+rf_p2 = predict(output.forest2, newdata = data_all_ian_input)
+
+```
+
+```{r}
+modelsvm1 = svm(assisstance_rate_type1 ~ node1 + SVI + population + hwm + wind_50_up , data = data_all)
+svm_p1 = predict(modelsvm1, data_all_ian_input)
+
+modelsvm2 = svm(assisstance_rate_type2 ~ node1 + SVI + population + hwm + wind_50_up , data = data_all)
+svm_p2 = predict(modelsvm2, data_all_ian_input)
+
+```
+
+```{r}
+# Create a graph with 10 nodes and random edges
+g <- sample_k_regular(282, 4)
+
+# Convert igraph to tbl_graph for use with ggraph
+graph_tbl <- as_tbl_graph(g)
+
+# Define a simple GNN model
+nn_graph <- nn_module(
+  "GNN",
+  initialize = function() {
+    self$conv1 <- nn_linear(5, 32)  # 5 predictors
+    self$conv2 <- nn_linear(32, 64)
+    self$conv3 <- nn_linear(64, 1)
+  },
+  forward = function(x, edge_index) {
+    x <- self$conv1(x)
+    x <- nnf_relu(x)
+    x <- self$conv2(x)
+    x <- nnf_relu(x)
+    x <- self$conv3(x)
+    return(x)
+  }
+)
+
+# Create node features
+data_all_input_tensor <- as.matrix(data_all_input)
+node_features <- torch_tensor(data_all_input_tensor, dtype = torch_float()) 
+
+# dis
+dis <- torch_tensor(dists, dtype = torch_float()) 
+
+# Create output features
+data_all_output1 <- as.matrix(data_all_output1)
+node_out1 <- torch_tensor(data_all_output1, dtype = torch_float()) 
+
+# Create output features
+data_all_output1 <- as.matrix(data_all_output2)
+node_out2 <- torch_tensor(data_all_output1, dtype = torch_float()) 
+
+# Create adjacency matrix
+adj_tensor <- torch_tensor(dists, dtype = torch_float())
+
+
+# Initialize and run the model
+model <- nn_graph()
+
+
+# Set up the loss function and optimizer
+loss_fn <- nn_mse_loss()
+optimizer <- optim_adam(model$parameters, lr = 0.01)
+
+# Training loop
+for (epoch in 1:2000) {
+  optimizer$zero_grad()
+  output <- model(node_features, dis)
+  loss <- loss_fn(output, node_out1)
+  loss$backward()
+  optimizer$step()
+}
+
+
+ian_input <- as.matrix(data_all_ian_input)
+new_data_tensor = torch_tensor(ian_input, dtype = torch_float()) 
+predictions1 <- model(new_data_tensor, dists_ian)
+
+# Set up the loss function and optimizer
+loss_fn <- nn_mse_loss()
+optimizer <- optim_adam(model$parameters, lr = 0.01)
+
+# Training loop
+for (epoch in 1:2000) {
+  optimizer$zero_grad()
+  output <- model(node_features, dis)
+  loss <- loss_fn(output, node_out2)
+  loss$backward()
+  optimizer$step()
+}
+predictions2 <- model(new_data_tensor, dists_ian)
+
+```
+
+
+```{r}
+counties <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
+counties <- subset(counties, grepl("florida", counties$ID))
+counties$IA_trailer_assistance_rate = data_all_ian_true$type1_t
+counties$IA_MHU_assistance_rate = data_all_ian_true$type2_t
+
+counties$SP_trailer_assistance_rate = data_all_ian_regression$type1_p
+counties$SP_MHU_assistance_rate = data_all_ian_regression$type2_p
+
+counties$f_trailer_assistance_rate = rf_p1
+counties$f_MHU_assistance_rate = rf_p2
+
+counties$svm_trailer_assistance_rate = svm_p1
+counties$svm_MHU_assistance_rate = svm_p2
+
+
+prediction1 = as_array(predictions1)
+prediction1 = as.data.frame(prediction1)
+prediction2 = as_array(predictions2)
+prediction2 = as.data.frame(prediction2)
+counties$gnn_trailer_assistance_rate = prediction1$V1
+counties$gnn_MHU_assistance_rate = prediction2$V1
+counties[counties$gnn_trailer_assistance_rate < 0, ]$gnn_trailer_assistance_rate = 0
+counties[counties$gnn_MHU_assistance_rate < 0, ]$gnn_MHU_assistance_rate = 0
+counties[counties$gnn_trailer_assistance_rate == 0, ]$gnn_MHU_assistance_rate = 0
+
+
+
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = IA_trailer_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="Trailer Assistance Rate (FEMA)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=0.5),legend.position = c(0.3, 0.35)) 
+
+write.table(counties$IA_trailer_assistance_rate, file = "FEMA_trailer.txt", sep = "\t",row.names = FALSE)
+
+ggsave("Trailer_T.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = IA_MHU_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="MHU Assistance Rate (FEMA)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=0.5),legend.position = c(0.25, 0.35))
+
+write.table(counties$IA_MHU_assistance_rate, file = "FEMA_MHU.txt", sep = "\t",row.names = FALSE)
+
+ggsave("MHU_T.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = SP_trailer_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="Trailer Assistance Rate (SR)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=0.5),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_trailer_assistance_rate - counties$SP_trailer_assistance_rate)^2)
+rmse(counties$IA_trailer_assistance_rate, counties$SP_trailer_assistance_rate)
+
+write.table(counties$SP_trailer_assistance_rate, file = "SP_trailer.txt", sep = "\t",row.names = FALSE)
+
+ggsave("Trailer_P.pdf")
+
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = SP_MHU_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="MHU Assistance Rate (SR)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_MHU_assistance_rate - counties$SP_MHU_assistance_rate)^2)
+rmse(counties$IA_MHU_assistance_rate, counties$SP_MHU_assistance_rate)
+
+write.table(counties$SP_MHU_assistance_rate, file = "SP_MHU.txt", sep = "\t",row.names = FALSE)
+
+ggsave("MHU_P.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = f_trailer_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="Trailer Assistance Rate (SRF)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_trailer_assistance_rate - counties$f_trailer_assistance_rate)^2)
+rmse(counties$IA_trailer_assistance_rate, counties$f_trailer_assistance_rate)
+
+write.table(counties$f_trailer_assistance_rate, file = "rf_trailer.txt", sep = "\t",row.names = FALSE)
+
+ggsave("Trailer_rf.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = f_MHU_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="MHU Assistance Rate (SRF)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_MHU_assistance_rate - counties$f_MHU_assistance_rate)^2)
+rmse(counties$IA_MHU_assistance_rate, counties$f_MHU_assistance_rate)
+
+write.table(counties$f_MHU_assistance_rate, file = "rf_MHU.txt", sep = "\t",row.names = FALSE)
+
+ggsave("MHU_rf.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = svm_trailer_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="Trailer Assistance Rate (SVM)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_trailer_assistance_rate - counties$svm_trailer_assistance_rate)^2)
+rmse(counties$IA_trailer_assistance_rate, counties$svm_trailer_assistance_rate)
+
+write.table(counties$svm_trailer_assistance_rate, file = "svm_Trailer.txt", sep = "\t",row.names = FALSE)
+
+ggsave("Trailer_svm.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = svm_MHU_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="MHU Assistance Rate (SVM)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_MHU_assistance_rate - counties$svm_MHU_assistance_rate)^2)
+rmse(counties$IA_MHU_assistance_rate, counties$svm_MHU_assistance_rate)
+
+write.table(counties$svm_MHU_assistance_rate, file = "svm_MHU.txt", sep = "\t",row.names = FALSE)
+
+ggsave("MHU_svm.pdf")
+
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = gnn_trailer_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="Trailer Assistance Rate (GNN)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_trailer_assistance_rate - counties$gnn_trailer_assistance_rate)^2)
+rmse(counties$IA_trailer_assistance_rate, counties$gnn_trailer_assistance_rate)
+
+write.table(counties$gnn_trailer_assistance_rate, file = "gnn_Trailer.txt", sep = "\t",row.names = FALSE)
+
+ggsave("Trailer_gnn.pdf")
+
+ggplot() +
+    geom_sf() +
+    geom_sf(data = counties, aes(fill = gnn_MHU_assistance_rate)) +
+    coord_sf(xlim = c(-88, -79), ylim = c(25, 31.5), expand = FALSE) + 
+    scale_fill_continuous(limits = c(0,0.025)) + 
+    guides(fill=guide_legend(title="MHU Assistance Rate (GNN)")) +
+    theme_bw(base_size = 12) + theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),legend.box.background = element_rect(color="black", size=1),legend.position = c(0.25, 0.35))
+
+mean((counties$IA_MHU_assistance_rate - counties$gnn_MHU_assistance_rate)^2)
+rmse(counties$IA_MHU_assistance_rate, counties$gnn_MHU_assistance_rate)
+
+write.table(counties$gnn_MHU_assistance_rate, file = "gnn_MHU.txt", sep = "\t",row.names = FALSE)
+
+ggsave("MHU_gnn.pdf")
+
+```
+
+```{r}
+library(citation)
+citation("torch")
+citation("spatialRF")
+citation("e1071")
+citation("spatialRF")
+```
+
+
+
+
+
+
+
